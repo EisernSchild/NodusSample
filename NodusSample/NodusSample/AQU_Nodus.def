@@ -1,0 +1,3 @@
+LIBRARY AQU_NODUS
+EXPORTS
+	AQU_Nodus_Create
