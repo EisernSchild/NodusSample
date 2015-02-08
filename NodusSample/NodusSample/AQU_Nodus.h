@@ -63,40 +63,43 @@ enum AQU_DirectXVersion
 class AQU_Nodus
 {
 public:
-	AQU_Nodus(void* pVoid) {}
-	~AQU_Nodus() {}
+	AQU_Nodus();
+	~AQU_Nodus();
 
 	/*** AQU_Nodus public methods ***/
-	virtual const char*     GetNodeType() { return typeid(this).name(); }
-	virtual UINT            GetNodeTypeId() { return NULL; }
-	virtual LPWSTR          GetCategory() { return L""; }
-	virtual int             GetProvokingType() { return 0; }
-	virtual bool            SupportsD3DMethod(int nD3DVersion, int nD3DInterface, int nD3DMethod)  { return false; }
-	virtual DWORD           GetCommandersNumber() { return 0; }
-	virtual DWORD           GetDecommandersNumber() { return 0; }
-	virtual LPWSTR          GetCommanderName(DWORD dwCommanderIndex) { return L""; }
-	virtual LPWSTR          GetDecommanderName(DWORD dwDecommanderIndex) { return L""; }
-	virtual DWORD           GetCommanderType(DWORD dwCommanderIndex) { return 0; }
-	virtual DWORD           GetDecommanderType(DWORD dwDecommanderIndex) { return 0; }
-	virtual void*           GetOutputPointer(DWORD dwCommanderIndex) { return nullptr; }
-	virtual void            SetInputPointer(DWORD dwDecommanderIndex, void* pData) { (dwDecommanderIndex); (pData); }
-	virtual void*           Provoke(void* pThis, int eD3D, int eD3DInterface, int eD3DMethod, DWORD dwNumberConnected, int& nProvokerIndex)	{ (pThis); (eD3D); (eD3DInterface); (eD3DMethod); (dwNumberConnected); (nProvokerIndex); return nullptr; }
-	virtual HBITMAP         Logo() { return nullptr; }
-	virtual HBITMAP         Control() { return nullptr; }
-	virtual void            WindowsEvent(UINT msg, WPARAM wParam, LPARAM lParam) {}
+	virtual const char*     GetNodeType();
+	virtual UINT            GetNodeTypeId();
+	virtual LPWSTR          GetCategory();
+	virtual HBITMAP         GetLogo();
+	virtual HBITMAP         GetControl();
+	virtual DWORD           GetNodeWidth();
+	virtual DWORD           GetNodeHeight();
+	virtual int             GetProvokingType();
+	virtual bool            GetMethodReplacement();
+	virtual DWORD           GetCommandersNumber();
+	virtual DWORD           GetDecommandersNumber();
+	virtual LPWSTR          GetCommanderName(DWORD dwCommanderIndex);
+	virtual LPWSTR          GetDecommanderName(DWORD dwDecommanderIndex);
+	virtual DWORD           GetCommanderType(DWORD dwCommanderIndex);
+	virtual DWORD           GetDecommanderType(DWORD dwDecommanderIndex);
+	virtual void*           GetOutputPointer(DWORD dwCommanderIndex);
+	virtual void            SetInputPointer(DWORD dwDecommanderIndex, void* pData);
+	virtual bool            SupportsD3DMethod(int nD3DVersion, int nD3DInterface, int nD3DMethod);
+	virtual void*           Provoke(void* pThis, int eD3D, int eD3DInterface, int eD3DMethod, DWORD dwNumberConnected, int& nProvokerIndex);
+	virtual void            WindowsEvent(UINT msg, WPARAM wParam, LPARAM lParam);
 };
 
 /**
 * Exported Constructor Method.
 * Do not change this declaration to ensure proper functionality.
 ***/
-extern "C" __declspec(dllexport) AQU_Nodus* AQU_Nodus_Create(void * pVoid)
+extern "C" __declspec(dllexport) AQU_Nodus* AQU_Nodus_Create()
 {
-	return new AQU_Nodus(pVoid);
+	return new AQU_Nodus();
 
 	// NOTE : If AQU_Nodus is overridden, change this to return a pointer to the derived class :
 	//
-	//        YOUR_CLASS* pYourClass = (YOUR_CLASS*)new YOUR_CLASS(pVoid);
+	//        YOUR_CLASS* pYourClass = (YOUR_CLASS*)new YOUR_CLASS();
 	//        return static_cast<AQU_Nodus*>(pYourClass);
 
 }
