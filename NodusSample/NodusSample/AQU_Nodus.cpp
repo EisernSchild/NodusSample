@@ -39,6 +39,13 @@ AQU_Nodus::AQU_Nodus()
 }
 
 /**
+* Destructor.
+***/
+AQU_Nodus::~AQU_Nodus()
+{
+}
+
+/**
 * Return the name of your node.
 * This name will be used in the Aquilinus working area.
 ***/
