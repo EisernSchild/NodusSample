@@ -146,6 +146,31 @@ bool AQU_Nodus::GetMethodReplacement()
 }
 
 /**
+* Returns the size, in bytes, of the nodes data block when saved.
+***/
+DWORD AQU_Nodus::GetSaveDataSize()
+{ 
+	return 0; 
+}
+
+/**
+* Returns a pointer to the save data block.
+***/
+char* AQU_Nodus::GetSaveData(UINT* pdwSizeOfData)
+{
+	return nullptr;
+}
+
+/**
+* Inits the node data block when loaded.
+***/
+void AQU_Nodus::InitNodeData(char* pData, UINT dwSizeOfData)
+{
+	(pData);
+	(dwSizeOfData);
+}
+
+/**
 * Returns the number of commanders on that node.
 ***/
 DWORD AQU_Nodus::GetCommandersNumber() 

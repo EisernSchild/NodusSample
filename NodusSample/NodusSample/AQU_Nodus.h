@@ -76,6 +76,9 @@ public:
 	virtual DWORD           GetNodeHeight();
 	virtual int             GetProvokingType();
 	virtual bool            GetMethodReplacement();
+	virtual DWORD           GetSaveDataSize();
+	virtual char*           GetSaveData(UINT* pdwSizeOfData);
+	virtual void            InitNodeData(char* pData, UINT dwSizeOfData);
 	virtual DWORD           GetCommandersNumber();
 	virtual DWORD           GetDecommandersNumber();
 	virtual LPWSTR          GetCommanderName(DWORD dwCommanderIndex);
